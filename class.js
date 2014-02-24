@@ -1,5 +1,7 @@
+'use strict';
+
+// A class "factory"
 var Class = function() {
-  'use strict';
   var klass = function() {
     this.init.apply(this, arguments);
   };
@@ -21,11 +23,48 @@ var Class = function() {
     if (extended) extended(klass);
   };
 
+  // adding instance properties
+  klass.include = function(obj) {
+    var included = obj.included;
+    for (var i in obj) {
+      klass.fn[i] = obj[i];
+    }
+    if (included) included(klass);
+  };
+
   return klass;
 };
 
-var Person = new Class;
-Person.prototype.init = function(){ // Called on Person instantiation
+// examples of using the class
+
+var Person = new Class();
+
+// properties sete on the class' prototype are also available on instances
+
+Person.prototype.init = function() {
+  // Called on Person instantiation
+  console.log('I\'m being initialized');
 };
-// Usage:
-var person = new Person;
+
+// but that syntax is "a little convoluted, impractical and repetitive"
+//  (not classical enough?) for Alex MacCaw, so he does:
+
+Person.include({
+  save:  function(id) {
+    console.log( id + ' is being saved');
+  },
+  destroy: function(id) {
+    console.log( id + 'is being destroyed!');
+  }
+});
+
+var person = new Person();
+person.save();
+
+Person.extend({
+  extended: function(klass) {
+    console.log(klass, ' was extended');
+  }
+});
+
+

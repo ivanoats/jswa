@@ -1,4 +1,10 @@
 'use strict';
+// Code Examples from *JavaScript Web Applications*
+//
+// By Alex MacCaw
+//
+// Chapter 1
+
 
 // A class "factory"
 var Class = function() {
@@ -35,7 +41,7 @@ var Class = function() {
   return klass;
 };
 
-// examples of using the class
+// Now, examples of using the class
 
 var Person = new Class();
 
@@ -46,8 +52,9 @@ Person.prototype.init = function() {
   console.log('I\'m being initialized');
 };
 
-// but that syntax is "a little convoluted, impractical and repetitive"
-//  (not classical enough?) for Alex MacCaw, so he does:
+// But that syntax is "a little convoluted, impractical and repetitive"
+// (not classical enough?) for Alex MacCaw, so he makes **include**
+// and **extend** methods like so:
 
 Person.include({
   save:  function(id) {

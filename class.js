@@ -64,7 +64,7 @@ var Class = function(parent) {
 
 var Person = new Class();
 
-// properties sete on the class' prototype are also available on instances
+// properties set on the class' prototype are also available on instances
 
 Person.prototype.init = function() {
   // Called on Person instantiation

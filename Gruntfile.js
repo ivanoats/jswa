@@ -7,14 +7,14 @@ module.exports = function(grunt) {
 
     copy: {
       all: {
-        src: ['*.css', '*.html', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
+        src: ['src/*.css', 'src/*.html', 'src/images/**/*', '!Gruntfile.js'],
         dest: 'dist/',
       },
     },
 
     browserify: {
       all: {
-        src: 'app.js',
+        src: 'src/*.js',
         dest: 'dist/app.js'
       },
       options: {
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
     connect: {
       options: {
-        port: process.env.PORT || 3131,
+        port: process.env.PORT || 3000,
         base: 'dist/',
       },
 
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
       },
 
       assets: {
-        files: ['assets/**/*', '*.css', '*.js', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
+        files: ['assets/**/*', '*.css', 'images/**/*', 'img/**/*', '!Gruntfile.js'],
         tasks: ['copy'],
       }
     }

@@ -7,8 +7,12 @@ module.exports = function(grunt) {
 
     copy: {
       all: {
-        src: ['src/*.css', 'src/*.html', 'src/images/**/*', '!Gruntfile.js'],
+        expand: true,
+        cwd: 'src/',
+        src: ['*.css', '*.html', '/images/**/*', '!Gruntfile.js'],
         dest: 'dist/',
+        flatten: true,
+        filter: 'isFile'
       },
     },
 

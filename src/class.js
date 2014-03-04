@@ -37,7 +37,7 @@ var Class = function(parent) {
   klass.fn.parent = klass;
 
   // Shortcut to access super class
-  klass._super = klass.__proto__;
+  klass._super = klass.__proto__;  //jshint ignore:line
 
   // Adding class properties
   klass.extend = function(obj) {
@@ -108,4 +108,3 @@ var Cat = new Class(Animal);
 // Animal Usage
 var tommy = new Cat();
 tommy.breath();
-

@@ -64,18 +64,16 @@ module.exports = function(grunt) {
     }
   });
 
-//  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-//   grunt.loadNpmTasks('jshint');
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
 //   grunt.loadNpmTasks('clean');
 //   grunt.loadNpmTasks('browserify');
 //   grunt.loadNpmTasks('copy');
 //   grunt.loadNpmTasks('watch');
 //   grunt.loadNpmTasks('connect');
 
-  // grunt.registerTask('jshint');
   // grunt.registerTask('clean');
   // grunt.registerTask('browserify');
-  // grunt.registerTask('copy');
 
   grunt.registerTask('default', ['jshint', 'clean', 'browserify', 'copy']);
   grunt.registerTask('server', ['default', 'connect', 'watch']);

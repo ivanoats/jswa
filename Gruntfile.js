@@ -22,7 +22,8 @@ module.exports = function(grunt) {
         dest: 'dist/app.js'
       },
       options: {
-        transform: ['debowerify']
+        transform: ['debowerify'],
+        debug: true
       }
     },
 

@@ -4,7 +4,7 @@
 var jQuery = require('jquery');
 
 // just checking that jquery is working
-$(console.log('jquery is ready'));
+jQuery(console.log('jquery is ready'));
 
 jQuery.fn.tabs = function(control){
   var element = $(this);
